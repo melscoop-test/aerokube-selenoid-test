@@ -18,5 +18,5 @@ jobs:
       run:  sudo apt-get install moby-engine moby-cli containerd.io
       
     - name: test aerokube script download time
-      run: time curl -Is https://aerokube.com/cm/bash | bash && ./cm selenoid start
+      run: time curl -s https://aerokube.com/cm/bash | bash && ./cm selenoid start
 
