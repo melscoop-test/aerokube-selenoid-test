@@ -7,8 +7,20 @@ jobs:
   test-aerokube:
     runs-on: ubuntu-latest
     steps:
+    - name: install docker dependencies
+      run: | 
+        sudo apt-get install |
+        apt-transport-https 
+        ca-certificates \
+        curl \
+        gnupg
+        
+    - name: add docker gpg key
+      run:  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
     - name: install docker
-      run: sudo apt install docker -y
-    - name: test download time
+      run:  sudo apt-get install docker-ce docker-ce-cli containerd.io
+      
+    - name: test aerokube script download time
       run: time curl -s https://aerokube.com/cm/bash | bash && ./cm selenoid start
 
