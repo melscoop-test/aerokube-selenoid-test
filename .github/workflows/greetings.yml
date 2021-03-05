@@ -1,0 +1,14 @@
+name: Greetings
+
+on:
+  workflow_dispatch
+
+jobs:
+  test-aerokube:
+    runs-on: ubuntu-latest
+    steps:
+    - name: install docker
+      run: sudo apt install docker -y
+    - name: test download time
+      run: time curl -s https://aerokube.com/cm/bash | bash && ./cm selenoid start
+
