@@ -15,7 +15,7 @@ jobs:
       run:  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
     - name: install docker
-      run:  sudo apt-get install moby-engine moby-cli docker-ce-cli containerd.io
+      run:  sudo apt-get install moby-engine moby-cli containerd.io
       
     - name: test aerokube script download time
       run: time curl -s https://aerokube.com/cm/bash | bash && ./cm selenoid start
