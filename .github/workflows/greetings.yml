@@ -9,11 +9,7 @@ jobs:
     steps:
     - name: install docker dependencies
       run: | 
-        sudo apt-get install |
-        apt-transport-https 
-        ca-certificates \
-        curl \
-        gnupg
+        sudo apt-get install apt-transport-https ca-certificates curl gnupg
         
     - name: add docker gpg key
       run:  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
